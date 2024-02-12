@@ -20,7 +20,7 @@ CREATE TABLE community_served(
 CREATE TABLE client (
     year INT NOT NULL,
     active CHAR(1) NOT NULL,
-    client_id INT PRIMARY KEY,
+    client_id SERIAL PRIMARY KEY,
     first_name VARCHAR(32) NOT NULL,
     last_name VARCHAR(32) NOT NULL,
     gender VARCHAR(6) NOT NULL,
@@ -35,5 +35,6 @@ CREATE TABLE client (
     pet_deposit CHAR(1) NOT NULL,
     pssg CHAR(1) NOT NULL,
     status VARCHAR(10),
-    deceased DATE
+    deceased DATE,
+    notes text
 );
