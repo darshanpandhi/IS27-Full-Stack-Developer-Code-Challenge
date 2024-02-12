@@ -4,18 +4,13 @@ const Client = () => {
   const [clientId, setClientId] = useState();
   const [client, setClient] = useState();
 
-  console.log("Rerendering");
-
   const getClientData = async (e) => {
     try {
-      console.log("client = ", client);
-
       e.preventDefault();
 
       const response = await fetch(`http://localhost:4000/clients/${clientId}`);
       const jsonData = await response.json();
 
-      console.log("jsonData = ", jsonData);
       setClient(jsonData);
     } catch (err) {
       console.log(err);
@@ -36,13 +31,7 @@ const Client = () => {
   };
 
   const saveClient = async () => {
-    console.log("Within updateClient");
-    console.log("Attempting to update client with id = ", clientId);
-    console.log("Updated client = ", client);
-
     try {
-      console.log(`http://localhost:4000/clients/${clientId}`);
-
       await fetch(`http://localhost:4000/clients/${clientId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -285,6 +274,16 @@ const Client = () => {
             value={client?.deceased}
             onChange={(e) => setClient({ ...client, deceased: e.target.value })}
           ></input>
+        </div>
+
+        <div class="form-group mt-4">
+          <label htmlFor="notes">Notes</label>
+          <textarea
+            id="notes"
+            class="form-control"
+            value={client?.notes}
+            onChange={(e) => setClient({ ...client, notes: e.target.value })}
+          ></textarea>
         </div>
 
         <div class="d-flex justify-content-between mt-4 mb-4">
