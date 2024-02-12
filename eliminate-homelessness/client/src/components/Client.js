@@ -4,6 +4,8 @@ const Client = () => {
   const [clientId, setClientId] = useState();
   const [client, setClient] = useState();
 
+  console.log("Rerendering");
+
   const getClientData = async (e) => {
     try {
       e.preventDefault();
@@ -42,10 +44,28 @@ const Client = () => {
     }
   };
 
+  const createNewClient = async () => {
+    try {
+      await fetch(`http://localhost:4000/clients`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(client),
+      });
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  const clearForm = () => {};
+
   const updateClientData = async (e) => {
     if (e.nativeEvent.submitter.name === "saveChanges") {
       await saveClient();
-    } else await deleteClient();
+    } else if (e.nativeEvent.submitter.name === "delete") {
+      await deleteClient();
+    } else if (e.nativeEvent.submitter.name === "createNewClient") {
+      await createNewClient();
+    } else clearForm();
   };
 
   return (
@@ -69,6 +89,7 @@ const Client = () => {
           <label htmlFor="clientId">Client ID</label>
           <input
             id="clientId"
+            readOnly
             type="text"
             class="form-control"
             value={client?.client_id}
@@ -287,6 +308,14 @@ const Client = () => {
         </div>
 
         <div class="d-flex justify-content-between mt-4 mb-4">
+          <button name="createNewClient" type="submit" class="btn btn-primary">
+            Create New Client
+          </button>
+
+          <button name="clear" type="submit" class="btn btn-success">
+            Clear
+          </button>
+
           <button name="saveChanges" type="submit" class="btn btn-warning">
             Save Changes
           </button>

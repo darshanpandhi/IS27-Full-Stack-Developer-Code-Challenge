@@ -17,11 +17,15 @@
 
 # Server
 
-To run the server simply execute `nodemon index` from within the server directory. It will be hosted on port 4000.
+- Navigate into the server folder
+- `npm install` to install required dependencies
+- `nodemon index` to start the server on port 4000
 
 # Web App
 
-To run the client web app simply execute `npm start` from within the client directory. It uses the pre-defined script in 'package.json' file.
+- Navigate into the server folder
+- `npm install` to install required dependencies
+- `npm start` to start the server on port 3000. It uses the pre-defined script in 'package.json' file.
 
 The web-app will be hosted on port 3000.
 
@@ -32,6 +36,7 @@ Postgres will be hosted on port 5432.
 ## Web App Supports:
 
 - Viewing existing clients and their associated data
+- Creating a new Client
 - Searching a client through `client_id`
 - Modifying client data (except `client_id`)
 - Deleting a client
@@ -40,19 +45,47 @@ Also, additional components and routes have been defined for future extension of
 
 ## How to use the Web-App
 
-Once the server, web-app and postgres (including table creation through the schema file and table seeding through the seed file) is complete and running,
+### Initialization
 
-- Enter the client-id of the client in the search bar and press search
+- Setup Postgres
+
+  - Create Tables using commands in 'Data/schema.sql'
+  - Seed these tables with inital data using commands in 'Data/seed.sql'
+
+- Start Server
+
+- Launch Client (React) app
+
+### Available Operations
+
+**Search:**
+
+- Enter the client-id of the client in the search bar and press search button
 - This will populate all the fields below with the client data
-- Feel free to edit any fields (except client_id). After satisfaction, hit save changes to persist data in DB
-- Alternatively, you can press delete to remove the client permanently
+
+**Edit:**
+
+- Search for the client whose data you want to modify
+- Edit any fields (except client_id).
+- Once done, hit the save changes button to persist data in DB
+
+**Create New Client:**
+
+- Empty the form if it is currently filled by pressing the Clear button
+- Enter data in all fields except the search bar and the Client ID field. Notes is optional
+- Once done, hit the Create New Client button
+
+**Delete Client:**
+
+- Search for the client that you want to delete
+- Once the data is populated, you can press delete to remove the client permanently
 
 ## Photos of web-app
-![image](https://github.com/darshanpandhi/IS27-Full-Stack-Developer-Code-Challenge/assets/43501829/792068cf-139c-4071-9463-725aebf0eff3)
-![image](https://github.com/darshanpandhi/IS27-Full-Stack-Developer-Code-Challenge/assets/43501829/c03c71da-4233-44cc-a356-98b7ed1c0222)
-![image](https://github.com/darshanpandhi/IS27-Full-Stack-Developer-Code-Challenge/assets/43501829/22c22628-4c98-4ab1-831f-25530e64d53c)
 
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image.png)
 
+---
 
-
-
+# Thanks

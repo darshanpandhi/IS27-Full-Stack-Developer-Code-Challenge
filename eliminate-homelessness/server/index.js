@@ -30,10 +30,11 @@ app.post("/clients", async (req, res) => {
       pssg,
       status,
       deceased,
+      notes,
     } = req.body;
 
     const newClient = await pool.query(
-      "INSERT INTO client (year, active, first_name, last_name, gender, date_of_birth, city, indigenous, pwd, vet, emergency_sheltered, bus_pass, clothing_supplement, pet_deposit, pssg, status, deceased) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING *",
+      "INSERT INTO client (year, active, first_name, last_name, gender, date_of_birth, city, indigenous, pwd, vet, emergency_sheltered, bus_pass, clothing_supplement, pet_deposit, pssg, status, deceased, notes) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18) RETURNING *",
       [
         year,
         active,
@@ -52,6 +53,7 @@ app.post("/clients", async (req, res) => {
         pssg,
         status,
         deceased,
+        notes,
       ]
     );
 
