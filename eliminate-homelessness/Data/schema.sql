@@ -35,5 +35,6 @@ CREATE TABLE client (
     pet_deposit CHAR(1) NOT NULL,
     pssg CHAR(1) NOT NULL,
     status VARCHAR(10),
-    deceased DATE
+    deceased DATE,
+    notes text
 );

@@ -8,7 +8,7 @@ INSERT INTO health_authority(name) VALUES ('Vancouver Coastal Health');
 
 -- Seed communities served by Northern Health
 COPY community_served(community)
-FROM '/Users/darshanpandhi/Library/CloudStorage/OneDrive-Personal/Documents/Career/Darshan/Job Oppurtunities+Applications/BC Public Service/Full Stack Developer/Coding Challenge/IS27-Full-Stack-Developer-Code-Challenge/Data/NorthernHealth.csv' -- replace with your file path
+FROM '/Users/darshanpandhi/Darshan/Software_Engineering/IS27-Full-Stack-Developer-Code-Challenge/eliminate-homelessness/Data/NorthernHealth.csv' -- replace with your file path
 DELIMITER ','
 CSV;
 
@@ -22,7 +22,7 @@ WHERE health_authority_id IS NULL;
 
 -- Seed communities served by Interior Health
 COPY community_served(community)
-FROM '/Users/darshanpandhi/Library/CloudStorage/OneDrive-Personal/Documents/Career/Darshan/Job Oppurtunities+Applications/BC Public Service/Full Stack Developer/Coding Challenge/IS27-Full-Stack-Developer-Code-Challenge/Data/InteriorHealth.csv'
+FROM '/Users/darshanpandhi/Darshan/Software_Engineering/IS27-Full-Stack-Developer-Code-Challenge/eliminate-homelessness/Data/InteriorHealth.csv'
 DELIMITER ','
 CSV;
 
@@ -36,7 +36,7 @@ WHERE health_authority_id IS NULL;
 
 -- Seed communities served by Island Health
 COPY community_served(community)
-FROM '/Users/darshanpandhi/Library/CloudStorage/OneDrive-Personal/Documents/Career/Darshan/Job Oppurtunities+Applications/BC Public Service/Full Stack Developer/Coding Challenge/IS27-Full-Stack-Developer-Code-Challenge/Data/IslandHealth.csv'
+FROM '/Users/darshanpandhi/Darshan/Software_Engineering/IS27-Full-Stack-Developer-Code-Challenge/eliminate-homelessness/Data/IslandHealth.csv'
 DELIMITER ','
 CSV;
 
@@ -50,7 +50,7 @@ WHERE health_authority_id IS NULL;
 
 -- Seed communities served by Fraser Health
 COPY community_served(community)
-FROM '/Users/darshanpandhi/Library/CloudStorage/OneDrive-Personal/Documents/Career/Darshan/Job Oppurtunities+Applications/BC Public Service/Full Stack Developer/Coding Challenge/IS27-Full-Stack-Developer-Code-Challenge/Data/FraserHealth.csv'
+FROM '/Users/darshanpandhi/Darshan/Software_Engineering/IS27-Full-Stack-Developer-Code-Challenge/eliminate-homelessness/Data/FraserHealth.csv'
 DELIMITER ','
 CSV;
 
@@ -64,7 +64,7 @@ WHERE health_authority_id IS NULL;
 
 -- Seed communities served by Vancouver Coastal Health
 COPY community_served(community)
-FROM '/Users/darshanpandhi/Library/CloudStorage/OneDrive-Personal/Documents/Career/Darshan/Job Oppurtunities+Applications/BC Public Service/Full Stack Developer/Coding Challenge/IS27-Full-Stack-Developer-Code-Challenge/Data/VancouverCoastalHealth.csv'
+FROM 'eliminate-homelessness/Data/VancouverCoastalHealth.csv'
 DELIMITER ','
 CSV;
 
@@ -81,8 +81,8 @@ UPDATE community_served
 SET community = RTRIM(community);
 
 -- Seed Data.csv
-COPY client
-FROM '/Users/darshanpandhi/Library/CloudStorage/OneDrive-Personal/Documents/Career/Darshan/Job Oppurtunities+Applications/BC Public Service/Full Stack Developer/Coding Challenge/IS27-Full-Stack-Developer-Code-Challenge/Data/Data.csv'
+COPY client (year, active, client_id, first_name, last_name, gender, date_of_birth, city, indigenous, pwd, vet, emergency_sheltered, bus_pass, clothing_supplement, pet_deposit, pssg, status, deceased)
+FROM '/Users/darshanpandhi/Darshan/Software_Engineering/IS27-Full-Stack-Developer-Code-Challenge/eliminate-homelessness/Data/Data.csv'
 DELIMITER ','
 CSV HEADER;
 
