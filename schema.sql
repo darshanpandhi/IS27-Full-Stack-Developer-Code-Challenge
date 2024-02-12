@@ -4,6 +4,18 @@ CREATE DATABASE homeless_data;
 -- Move into the db
 \c homeless_data
 
+-- Create health_authority table
+CREATE TABLE health_authority(
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL
+);
+
+-- Create community_served table
+CREATE TABLE community_served(
+    community VARCHAR(50) PRIMARY KEY,
+    health_authority_id INT REFERENCES health_authority(id)
+);
+
 -- Create client table
 CREATE TABLE client (
     year INT NOT NULL,
