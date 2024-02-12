@@ -46,3 +46,13 @@ Once the server, web-app and postgres (including table creation through the sche
 - This will populate all the fields below with the client data
 - Feel free to edit any fields (except client_id). After satisfaction, hit save changes to persist data in DB
 - Alternatively, you can press delete to remove the client permanently
+
+## Photos of web-app
+![image](https://github.com/darshanpandhi/IS27-Full-Stack-Developer-Code-Challenge/assets/43501829/792068cf-139c-4071-9463-725aebf0eff3)
+![image](https://github.com/darshanpandhi/IS27-Full-Stack-Developer-Code-Challenge/assets/43501829/c03c71da-4233-44cc-a356-98b7ed1c0222)
+![image](https://github.com/darshanpandhi/IS27-Full-Stack-Developer-Code-Challenge/assets/43501829/22c22628-4c98-4ab1-831f-25530e64d53c)
+
+
+
+
+
