@@ -76,3 +76,21 @@ SET health_authority_id = (
 )
 WHERE health_authority_id IS NULL;
 
+-- Removing Trailing Spaces
+UPDATE community_served
+SET community = RTRIM(community);
+
+-- Seed Data.csv
+COPY client
+FROM '/Users/darshanpandhi/Library/CloudStorage/OneDrive-Personal/Documents/Career/Darshan/Job Oppurtunities+Applications/BC Public Service/Full Stack Developer/Coding Challenge/IS27-Full-Stack-Developer-Code-Challenge/Data/Data.csv'
+DELIMITER ','
+CSV HEADER;
+
+-- Removing Periods
+UPDATE client
+SET city = REPLACE(city, '.', '');
+
+-- Add foreign key constraint to client table
+ALTER TABLE client
+ADD FOREIGN KEY (city)
+REFERENCES community_served(community);
