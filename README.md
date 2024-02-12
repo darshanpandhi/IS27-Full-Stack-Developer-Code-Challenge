@@ -1,1 +1,2 @@
-Database Used: PostgreSQL
+Database: PostgreSQL
+JavaScript Framework: React
