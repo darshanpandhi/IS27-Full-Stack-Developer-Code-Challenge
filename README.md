@@ -1,3 +1,10 @@
-Database: PostgreSQL
+# Technologies Used
 
-JavaScript Framework: React
+- React
+- HTML
+- CSS
+- Bootstrap
+- Node
+- Express
+- PostgreSQL
+- Git
