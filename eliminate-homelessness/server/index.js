@@ -108,10 +108,11 @@ app.put("/clients/:id", async (req, res) => {
       pssg,
       status,
       deceased,
+      notes,
     } = req.body;
 
     const updatedClient = await pool.query(
-      "UPDATE client SET year = $1, active = $2, first_name = $3, last_name = $4, gender = $5, date_of_birth = $6, city = $7, indigenous = $8, pwd = $9, vet = $10, emergency_sheltered = $11, bus_pass = $12, clothing_supplement = $13, pet_deposit = $14, pssg = $15, status = $16, deceased = $17 WHERE client_id = $18 RETURNING *",
+      "UPDATE client SET year = $1, active = $2, first_name = $3, last_name = $4, gender = $5, date_of_birth = $6, city = $7, indigenous = $8, pwd = $9, vet = $10, emergency_sheltered = $11, bus_pass = $12, clothing_supplement = $13, pet_deposit = $14, pssg = $15, status = $16, deceased = $17, notes = $18 WHERE client_id = $19 RETURNING *",
       [
         year,
         active,
@@ -130,6 +131,7 @@ app.put("/clients/:id", async (req, res) => {
         pssg,
         status,
         deceased,
+        notes,
         id,
       ]
     );
